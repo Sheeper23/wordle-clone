@@ -2,26 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes letterPlaced {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes letterFlipGreen {
+  0% {
+    transform: scaleY(1);
+    background-color: rgb(148 163 184);
+    border-color: white;
+  }
+  50% {
+    transform: scaleY(0);
+    background-color: rgb(148 163 184);
+    border-color: white;
+  }
+  100% {
+    transform: scaleY(1);
+    background-color:rgb(0 190 90);
+    border-color: rgb(0 190 90);
+  }
+}
+
+@keyframes letterFlipYellow {
+  0% {
+    transform: scaleY(1);
+    background-color: rgb(148 163 184);
+    border-color: white;
+  }
+  50% {
+    transform: scaleY(0);
+    background-color: rgb(148 163 184);
+    border-color: white;
+  }
+  100% {
+    transform: scaleY(1);
+    background-color: rgb(235 169 44);
+    border-color: rgb(235 169 44);
+  }
+}
+
+@keyframes letterFlipNone {
+  0% {
+    transform: scaleY(1);
+    background-color: rgb(148 163 184);
+    border-color: white;
+  }
+  50% {
+    transform: scaleY(0);
+    background-color: rgb(148 163 184);
+    border-color: white;
+  }
+  100% {
+    transform: scaleY(1);
+    background-color: rgb(44 57 74);
+    border-color: rgb(44 57 74);
+  }
 }
