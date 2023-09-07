@@ -64,3 +64,21 @@
     border-color: rgb(44 57 74);
   }
 }
+
+@keyframes keyRevealGreen {
+  to {
+    background-color: rgb(0 190 90);
+  }
+}
+
+@keyframes keyRevealYellow {
+  to {
+    background-color: rgb(235 169 44);
+  }
+}
+
+@keyframes keyRevealNone {
+  to {
+    background-color: rgb(44 57 74);
+  }
+}

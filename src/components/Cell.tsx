@@ -12,11 +12,11 @@ export default function Cell({
     color
 }: CellProps) {
     const styling: React.CSSProperties = {
-        borderColor: `${letter == " " ? "rgb(100 116 139)" : "rgb(255 255 255)"}`,
-        animationName: `${letter == " " ? "" : "letterPlaced"}${revealed ? `, letterFlip${color}` : ""}`,
-        animationDuration: `${letter == " " ? "" : "0.3s"}${revealed ? ", 0.3s" : ""}`,
-        animationTimingFunction: `${letter == " " ? "" : "linear"}${revealed ? ", linear" : ""}`,
-        animationDelay: `${letter == " " ? "" : "0s"}${revealed ? `, ${delay}s` : ""}`,
+        borderColor: `${letter === " " ? "rgb(100 116 139)" : "rgb(255 255 255)"}`,
+        animationName: `${letter === " " ? "" : "letterPlaced"}${revealed ? `, letterFlip${color}` : ""}`,
+        animationDuration: `${letter === " " ? "" : "0.3s"}${revealed ? ", 0.3s" : ""}`,
+        animationTimingFunction: `${letter === " " ? "" : "linear"}${revealed ? ", linear" : ""}`,
+        animationDelay: `${letter === " " ? "" : "0s"}${revealed ? `, ${delay}s` : ""}`,
         animationFillMode: "forwards"
     }
 

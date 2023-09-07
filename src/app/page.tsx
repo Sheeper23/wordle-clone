@@ -3,12 +3,22 @@
 import Keyboard from '../components/Keyboard'
 import TopBar from '../components/TopBar'
 import Grid from '../components/Grid'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 export default function Home() {
   const [grid, setGrid] = useState(["     ", "     ", "     ", "     ", "     ", "     "])
   const [row, setRow] = useState(0)
+  const [letterColors, setLetterColors] = useState<{[letter: string]: string}>("QWERTYUIOPASDFGHJKLZXCVBNM".split('').reduce((o, key) => ({ ...o, [key]: "Default"}), {}))
 
+  const onLetterColorChange = (letter: string, color: string) => {
+    if (letterColors[letter] === "Green" || (letterColors[letter] === "Yellow" && color !== "Green")) return
+    
+    setLetterColors(prevState => ({
+      ...prevState,
+      [letter]: color
+    }));
+
+  }
 
   const onEnter = () => {
     if (grid[row].trim().length != 5) return
@@ -35,11 +45,13 @@ export default function Home() {
         <Grid
         entries={grid}
         revealedRows={row}
+        onLetterColorChange={onLetterColorChange}
         />
         <Keyboard
         onEnter={onEnter}
         onDelete={onDelete}
         onChar={onChar}
+        letterColors={letterColors}
         />
       </main>
       
