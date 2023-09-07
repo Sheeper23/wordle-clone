@@ -23,10 +23,13 @@ export default function Row({
         let tempLetters = letters
         let tempColors = ["", "", "", "", ""]
 
+        let stagedColorChanges: {[letter: string]: string} = {}
+
         for (let i = 0; i < tempLetters.length; i++) {
             if (tempLetters.charAt(i) === word.charAt(i)) {
                 tempColors[i] = "Green"
-                onLetterColorChange(letters[i], "Green")
+                // onLetterColorChange(letters[i], "Green")
+                stagedColorChanges[letters[i]] = "Green"
                 word = word.slice(0, i) + word.charAt(i).toLowerCase() + word.slice(i+1)
                 tempLetters = tempLetters.slice(0, i) + tempLetters.charAt(i).toLowerCase() + tempLetters.slice(i+1)
             }
@@ -36,14 +39,22 @@ export default function Row({
             if (tempColors[i] !== "Green") {
                 if (word.includes(tempLetters.charAt(i))) {
                     tempColors[i] = "Yellow"
-                    onLetterColorChange(letters[i], "Yellow")
+                    letters[i] in stagedColorChanges ? null : stagedColorChanges[letters[i]] = "Yellow"
+                    word = word.slice(0, word.indexOf(tempLetters[i])) + word.charAt(word.indexOf(tempLetters[i])).toLowerCase() + word.slice(word.indexOf(tempLetters[i])+1)
+                    tempLetters = tempLetters.slice(0, i) + tempLetters.charAt(i).toLowerCase() + tempLetters.slice(i+1)
                 }
                 else {
                     tempColors[i] = "None"
-                    onLetterColorChange(letters[i], "None")
+                    letters[i] in stagedColorChanges ? null : stagedColorChanges[letters[i]] = "None"
                 }
             }
         }
+        
+        for (let key in stagedColorChanges) {
+            onLetterColorChange(key, stagedColorChanges[key])
+        }
+        
+        // TODO: fix bug where yellow --> green shows gray in between, "fill forwards" not working as intended 
 
         setColors(tempColors)
     }, [letters, revealed])
