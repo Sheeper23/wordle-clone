@@ -20,10 +20,10 @@ export default function Keyboard({
         if ("qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".includes(val)) {
             onChar(val.toUpperCase())
         }
-        else if (val == "Enter") {
+        else if (val == "ENTER") {
             onEnter()
         }
-        else if (val == "Delete") {
+        else if (val == "DELETE") {
             onDelete()
         }
     }
@@ -59,11 +59,11 @@ export default function Keyboard({
                 ))}
             </div>
             <div className="flex justify-center gap-1">
-                <Key width="4rem" val="Enter" onClick={onClick} />
+                <Key width="4rem" val="ENTER" onClick={onClick} textSmall={true} />
                 {"ZXCVBNM".split('').map((letter) => (
                     <Key key={letter} val={letter} onClick={onClick} letterColor={letterColors[letter]} />
                 ))}
-                <Key width="4rem" val="Delete" onClick={onClick} />
+                <Key width="4rem" val="DELETE" onClick={onClick} textSmall={true} />
             </div>
         </div>
     )

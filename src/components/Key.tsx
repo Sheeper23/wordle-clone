@@ -3,13 +3,15 @@ type KeyProps = {
     width?: string
     onClick: (val: string) => void
     letterColor?: string
+    textSmall?: boolean
 }
 
 export default function Key({
     val,
     width = '2.5rem',
     onClick,
-    letterColor = "Default"
+    letterColor = "Default",
+    textSmall
 }: KeyProps) {
     const click = () => {
         onClick(val)
@@ -27,8 +29,8 @@ export default function Key({
         <button
         style={styling}
         onClick={click}
-        className="md:w-10 md:h-14 h-12 bg-slate-400 rounded select-none outline-none">
-            <p className="text-white font-semibold text-sm">{val}</p>
+        className="md:w-10 md:h-14 h-12 bg-keys rounded select-none outline-none">
+            <p style={textSmall ? {fontSize: "0.75rem", lineHeight: "1rem"} : {}} className="text-white font-semibold text-xl">{val}</p>
         </button>
     )
 }

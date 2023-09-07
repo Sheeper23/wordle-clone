@@ -14,12 +14,10 @@
 @keyframes letterFlipGreen {
   0% {
     transform: scaleY(1);
-    background-color: rgb(148 163 184);
     border-color: white;
   }
   50% {
     transform: scaleY(0);
-    background-color: rgb(148 163 184);
     border-color: white;
   }
   100% {
@@ -32,12 +30,10 @@
 @keyframes letterFlipYellow {
   0% {
     transform: scaleY(1);
-    background-color: rgb(148 163 184);
     border-color: white;
   }
   50% {
     transform: scaleY(0);
-    background-color: rgb(148 163 184);
     border-color: white;
   }
   100% {
@@ -50,12 +46,10 @@
 @keyframes letterFlipNone {
   0% {
     transform: scaleY(1);
-    background-color: rgb(148 163 184);
     border-color: white;
   }
   50% {
     transform: scaleY(0);
-    background-color: rgb(148 163 184);
     border-color: white;
   }
   100% {
