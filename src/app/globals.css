@@ -14,65 +14,65 @@
 @keyframes letterFlipGreen {
   0% {
     transform: scaleY(1);
-    border-color: white;
+    border-color: rgb(76 77 78);
   }
   50% {
     transform: scaleY(0);
-    border-color: white;
+    border-color: rgb(76 77 78);
   }
   100% {
     transform: scaleY(1);
-    background-color:rgb(0 190 90);
-    border-color: rgb(0 190 90);
+    background-color:rgb(68 130 72);
+    border-color: rgb(68 130 72);
   }
 }
 
 @keyframes letterFlipYellow {
   0% {
     transform: scaleY(1);
-    border-color: white;
+    border-color: rgb(76 77 78);
   }
   50% {
     transform: scaleY(0);
-    border-color: white;
+    border-color: rgb(76 77 78);
   }
   100% {
     transform: scaleY(1);
-    background-color: rgb(235 169 44);
-    border-color: rgb(235 169 44);
+    background-color: rgb(174 148 62);
+    border-color: rgb(174 148 62);
   }
 }
 
 @keyframes letterFlipNone {
   0% {
     transform: scaleY(1);
-    border-color: white;
+    border-color: rgb(76 77 78);
   }
   50% {
     transform: scaleY(0);
-    border-color: white;
+    border-color: rgb(76 77 78);
   }
   100% {
     transform: scaleY(1);
-    background-color: rgb(44 57 74);
-    border-color: rgb(44 57 74);
+    background-color: rgb(51 51 52);
+    border-color: rgb(51 51 52);
   }
 }
 
 @keyframes keyRevealGreen {
   to {
-    background-color: rgb(0 190 90);
+    background-color: rgb(68 130 72);
   }
 }
 
 @keyframes keyRevealYellow {
   to {
-    background-color: rgb(235 169 44);
+    background-color: rgb(174 148 62);
   }
 }
 
 @keyframes keyRevealNone {
   to {
-    background-color: rgb(44 57 74);
+    background-color: rgb(51 51 52);
   }
 }

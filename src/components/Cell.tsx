@@ -12,7 +12,7 @@ export default function Cell({
     color
 }: CellProps) {
     const styling: React.CSSProperties = {
-        borderColor: `${letter === " " ? "rgb(51 51 52)" : "rgb(255 255 255)"}`,
+        borderColor: `${letter === " " ? "rgb(51 51 52)" : "rgb(76 77 78)"}`,
         animationName: `${letter === " " ? "" : "letterPlaced"}${revealed ? `, letterFlip${color}` : ""}`,
         animationDuration: `${letter === " " ? "" : "0.1s"}${revealed ? ", 0.3s" : ""}`,
         animationTimingFunction: `${letter === " " ? "" : "linear"}${revealed ? ", linear" : ""}`,
