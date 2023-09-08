@@ -30,7 +30,7 @@ export default function Key({
         style={styling}
         onClick={click}
         className="md:w-10 md:h-14 h-12 bg-keys rounded select-none outline-none">
-            <p style={textSmall ? {fontSize: "0.75rem", lineHeight: "1rem"} : {}} className="text-white font-semibold text-xl">{val}</p>
+            <p style={textSmall ? {fontSize: "0.75rem", lineHeight: "1rem"} : {}} className="text-white font-bold text-lg">{val}</p>
         </button>
     )
 }
