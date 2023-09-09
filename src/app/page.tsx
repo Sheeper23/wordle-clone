@@ -3,13 +3,19 @@
 import Keyboard from '../components/Keyboard'
 import TopBar from '../components/TopBar'
 import Grid from '../components/Grid'
-import { useState } from 'react'
+import useTextData from '@/utils/useTextData'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Home() {
   const [grid, setGrid] = useState(["     ", "     ", "     ", "     ", "     ", "     "])
   const [row, setRow] = useState(0)
   const [letterColors, setLetterColors] = useState<{[letter: string]: string}>("QWERTYUIOPASDFGHJKLZXCVBNM".split('').reduce((o, key) => ({ ...o, [key]: "Default"}), {}))
   const [inputLockout, setInputLockout] = useState(false)
+  const [word, validGuesses] = useTextData()
+
+  useEffect(() => {
+    console.log(word.current)
+  }, [])
 
   const onLetterColorChange = (letter: string, color: string) => {
     if (letterColors[letter] === "Green" || (letterColors[letter] === "Yellow" && color !== "Green")) return
@@ -22,12 +28,10 @@ export default function Home() {
   }
 
   const onEnter = () => {
-    if (inputLockout || grid[row].trim().length != 5) return
+    if (inputLockout || grid[row].trim().length != 5 || !validGuesses.current.includes(grid[row])) return
 
     setRow(row + 1)
     setInputLockout(true)
-    console.log(letterColors)
-    console.log(Object.values(letterColors).filter((val, _, __) => {return val === "Yellow"}))
     setTimeout(() => {setInputLockout(false)}, 1700)
   }
 
@@ -51,6 +55,7 @@ export default function Home() {
         entries={grid}
         revealedRows={row}
         onLetterColorChange={onLetterColorChange}
+        word={word.current as string}
         />
         <Keyboard
         onEnter={onEnter}

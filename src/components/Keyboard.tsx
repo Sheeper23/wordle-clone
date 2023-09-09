@@ -30,7 +30,6 @@ export default function Keyboard({
 
     useEffect(() => {
         const listener = (e: KeyboardEvent) => {
-            console.log(e)
             if ("qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".includes(e.key)) {
                 onChar(e.key.toUpperCase())
             }
