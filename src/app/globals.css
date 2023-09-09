@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --keyDefault: #767879;
+  --keyYellow: rgb(174 148 62);
+  --keyGreen: rgb(68 130 72);
+  --keyNone: rgb(51 51 52);
+}
+
 @keyframes letterPlaced {
   0%, 100% {
     transform: scale(1);
@@ -22,8 +29,8 @@
   }
   100% {
     transform: scaleY(1);
-    background-color:rgb(68 130 72);
-    border-color: rgb(68 130 72);
+    background-color: var(--keyGreen);
+    border-color: var(--keyGreen);
   }
 }
 
@@ -38,8 +45,8 @@
   }
   100% {
     transform: scaleY(1);
-    background-color: rgb(174 148 62);
-    border-color: rgb(174 148 62);
+    background-color: var(--keyYellow);
+    border-color: var(--keyYellow);
   }
 }
 
@@ -54,25 +61,25 @@
   }
   100% {
     transform: scaleY(1);
-    background-color: rgb(51 51 52);
-    border-color: rgb(51 51 52);
+    background-color: var(--keyNone);
+    border-color: var(--keyNone);
   }
 }
 
 @keyframes keyRevealGreen {
   to {
-    background-color: rgb(68 130 72);
+    background-color: var(--keyGreen);
   }
 }
 
 @keyframes keyRevealYellow {
   to {
-    background-color: rgb(174 148 62);
+    background-color: var(--keyYellow);
   }
 }
 
 @keyframes keyRevealNone {
   to {
-    background-color: rgb(51 51 52);
+    background-color: var(--keyNone);
   }
 }

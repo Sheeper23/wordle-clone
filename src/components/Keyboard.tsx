@@ -30,6 +30,7 @@ export default function Keyboard({
 
     useEffect(() => {
         const listener = (e: KeyboardEvent) => {
+            console.log(e)
             if ("qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM".includes(e.key)) {
                 onChar(e.key.toUpperCase())
             }
@@ -40,9 +41,9 @@ export default function Keyboard({
                 onDelete()
             }
         }
-        window.addEventListener('keyup', listener)
+        window.addEventListener('keydown', listener)
         return () => {
-            window.removeEventListener('keyup', listener)
+            window.removeEventListener('keydown', listener)
         }
     }, [onChar, onEnter, onDelete])
     

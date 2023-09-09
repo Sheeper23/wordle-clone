@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 type KeyProps = {
     val: string
     width?: string
@@ -13,6 +15,8 @@ export default function Key({
     letterColor = "Default",
     textSmall
 }: KeyProps) {
+    const [bgColor, setBgColor] = useState("var(--keyDefault)")
+    
     const click = () => {
         onClick(val)
     }
@@ -22,13 +26,14 @@ export default function Key({
         animationName: `${letterColor !== "Default" ? `keyReveal${letterColor}` : ""}`,
         animationDuration: "0s",
         animationDelay: "1.7s",
-        animationFillMode: "forwards"
+        backgroundColor: bgColor
     }
 
     return (
         <button
         style={styling}
         onClick={click}
+        onAnimationEnd={() => {setBgColor(`var(--key${letterColor})`)}}
         className="md:w-10 md:h-14 h-12 bg-keys rounded select-none outline-none">
             <p style={textSmall ? {fontSize: "0.75rem", lineHeight: "1rem"} : {}} className="text-white font-bold text-lg">{val}</p>
         </button>

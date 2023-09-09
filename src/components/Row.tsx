@@ -17,6 +17,8 @@ export default function Row({
     const [colors, setColors] = useState(["Default", "Default", "Default", "Default", "Default"])
 
     useEffect(() => {
+        // Game Logic
+
         if (!revealed) return
 
         let word = "WORLD"
@@ -53,8 +55,6 @@ export default function Row({
         for (let key in stagedColorChanges) {
             onLetterColorChange(key, stagedColorChanges[key])
         }
-        
-        // TODO: fix bug where yellow --> green shows gray in between, "fill forwards" not working as intended 
 
         setColors(tempColors)
     }, [letters, revealed])

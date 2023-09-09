@@ -26,6 +26,8 @@ export default function Home() {
 
     setRow(row + 1)
     setInputLockout(true)
+    console.log(letterColors)
+    console.log(Object.values(letterColors).filter((val, _, __) => {return val === "Yellow"}))
     setTimeout(() => {setInputLockout(false)}, 1700)
   }
 
