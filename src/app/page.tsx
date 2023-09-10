@@ -32,7 +32,9 @@ export default function Home() {
 
     setRow(row + 1)
     setInputLockout(true)
-    setTimeout(() => {setInputLockout(false)}, 1700)
+    if (!(grid[row] === (word.current as string)) && row+1 < 6) {
+      setTimeout(() => {setInputLockout(false)}, 1700)
+    }
   }
 
   const onDelete = () => {
