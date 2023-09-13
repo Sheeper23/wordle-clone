@@ -5,13 +5,17 @@ type GridProps = {
     revealedRows: number
     onLetterColorChange: (letter: string, color: string) => void
     word: string
+    wiggle: number
+    setWiggle: (val: number) => void
 }
 
 export default function Grid({
     entries,
     revealedRows,
     onLetterColorChange,
-    word
+    word,
+    wiggle,
+    setWiggle
 }: GridProps) {
     return (
         <div className="flex flex-col grow items-center gap-1 justify-center">
@@ -21,6 +25,8 @@ export default function Grid({
                     key={index}
                     letters={entry}
                     revealed={index < revealedRows}
+                    wiggle={index === revealedRows ? wiggle : undefined}
+                    setWiggle={index === revealedRows ? setWiggle : undefined}
                     onLetterColorChange={onLetterColorChange}
                     word={word}
                     />

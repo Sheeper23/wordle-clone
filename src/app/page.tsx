@@ -12,6 +12,7 @@ export default function Home() {
   const [letterColors, setLetterColors] = useState<{[letter: string]: string}>("QWERTYUIOPASDFGHJKLZXCVBNM".split('').reduce((o, key) => ({ ...o, [key]: "Default"}), {}))
   const [inputLockout, setInputLockout] = useState(false)
   const [word, validGuesses] = useTextData()
+  const [wiggle, setWiggle] = useState(0)
 
   useEffect(() => {
     console.log(word.current)
@@ -28,7 +29,11 @@ export default function Home() {
   }
 
   const onEnter = () => {
-    if (inputLockout || grid[row].trim().length != 5 || !validGuesses.current.includes(grid[row])) return
+    if (inputLockout || grid[row].trim().length != 5) return
+    if (!validGuesses.current.includes(grid[row])) {
+      setWiggle(1)
+      return
+    }
 
     setRow(row + 1)
     setInputLockout(true)
@@ -58,6 +63,8 @@ export default function Home() {
         revealedRows={row}
         onLetterColorChange={onLetterColorChange}
         word={word.current as string}
+        wiggle={wiggle}
+        setWiggle={setWiggle}
         />
         <Keyboard
         onEnter={onEnter}

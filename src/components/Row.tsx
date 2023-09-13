@@ -8,13 +8,17 @@ type RowProps = {
     revealed: boolean
     onLetterColorChange: (letter: string, color: string) => void
     word: string
+    wiggle: number | undefined
+    setWiggle: ((val: number) => void) | undefined
 }
 
 export default function Row({
     letters,
     revealed,
     onLetterColorChange,
-    word
+    word,
+    wiggle,
+    setWiggle
 }: RowProps) {
     const [colors, setColors] = useState(["Default", "Default", "Default", "Default", "Default"])
 
@@ -62,7 +66,7 @@ export default function Row({
     }, [letters, revealed])
 
     return (
-        <div className="flex justify-center gap-1">
+        <div data-wiggle={wiggle !== undefined ? wiggle : undefined} onAnimationEnd={() => {setWiggle !== undefined ? setWiggle(0) : undefined}} className="flex justify-center gap-1">
             {
                 letters.split('').map((val, index) => (
                     <Cell
