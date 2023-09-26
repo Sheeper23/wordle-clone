@@ -40,10 +40,10 @@ export default function Home() {
     }
     else {
       if (grid[row] === word.current as string) {
-        setTimeout(() => {toast.success(`You win!`, {style: {backgroundColor: "rgb(68 130 72)", color: "white"}, duration: 5000})}, 1700)
+        setTimeout(() => {toast.success(`You win!`, {style: {backgroundColor: "rgb(68 130 72)", color: "white"}, duration: Infinity})}, 1700)
       }
       else if (row+1 >= 6) {
-        setTimeout(() => {toast(`The word was:\n${word.current}`, {duration: 5000})}, 1700)
+        setTimeout(() => {toast(`The word was:\n${word.current}`, {duration: Infinity})}, 1700)
       }
     }
   }
