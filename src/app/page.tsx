@@ -5,6 +5,7 @@ import TopBar from '../components/TopBar'
 import Grid from '../components/Grid'
 import useTextData from '@/utils/useTextData'
 import { useEffect, useRef, useState } from 'react'
+import toast from 'react-hot-toast'
 
 export default function Home() {
   const [grid, setGrid] = useState(["     ", "     ", "     ", "     ", "     ", "     "])
@@ -32,6 +33,7 @@ export default function Home() {
     if (inputLockout || grid[row].trim().length != 5) return
     if (!validGuesses.current.includes(grid[row])) {
       setWiggle(1)
+      toast.error(`Invalid word: ${grid[row]}`, {style: {backgroundColor: "red", color: "white"}, duration: 2000})
       return
     }
 

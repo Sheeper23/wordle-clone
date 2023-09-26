@@ -1,3 +1,4 @@
+import ToasterProvider from '@/providers/ToasterProvider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Roboto, Bevan } from 'next/font/google'
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} ${bevan.variable} flex flex-col m-0 h-[100dvh] overflow-x-hidden bg-backfill`}>
+        <ToasterProvider />
         {children}
       </body>
     </html>
