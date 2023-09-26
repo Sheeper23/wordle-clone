@@ -15,10 +15,6 @@ export default function Home() {
   const [word, validGuesses] = useTextData()
   const [wiggle, setWiggle] = useState(0)
 
-  useEffect(() => {
-    console.log(word.current)
-  }, [])
-
   const onLetterColorChange = (letter: string, color: string) => {
     if (letterColors[letter] === "Green" || (letterColors[letter] === "Yellow" && color !== "Green")) return
     
@@ -33,7 +29,7 @@ export default function Home() {
     if (inputLockout || grid[row].trim().length != 5) return
     if (!validGuesses.current.includes(grid[row])) {
       setWiggle(1)
-      toast.error(`Invalid word: ${grid[row]}`, {style: {backgroundColor: "red", color: "white"}, duration: 2000})
+      toast.error(`Invalid word:\n${grid[row]}`, {style: {backgroundColor: "red", color: "white"}, duration: 2000})
       return
     }
 
@@ -41,6 +37,14 @@ export default function Home() {
     setInputLockout(true)
     if (!(grid[row] === (word.current as string)) && row+1 < 6) {
       setTimeout(() => {setInputLockout(false)}, 1700)
+    }
+    else {
+      if (grid[row] === word.current as string) {
+        setTimeout(() => {toast.success(`You win!`, {style: {backgroundColor: "rgb(68 130 72)", color: "white"}, duration: 5000})}, 1700)
+      }
+      else if (row+1 >= 6) {
+        setTimeout(() => {toast(`The word was:\n${word.current}`, {duration: 5000})}, 1700)
+      }
     }
   }
 
