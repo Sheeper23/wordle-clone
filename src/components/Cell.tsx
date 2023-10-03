@@ -27,8 +27,10 @@ export default function Cell({
                 `${color === "Green"
             ? "correct"
             : (color === "Yellow"
-            ? "present" :
-            "empty")}`
+            ? "present"
+            : (color === "None"
+            ? "absent"
+            : "empty"))}`
             }
             className="Tile-module_tile__UWEHN text-white text-3xl font-bold">
                 {letter}
