@@ -22,7 +22,7 @@ export default function Cell({
 
     return (
         <div style={styling} className="flex w-14 aspect-square items-center justify-center border-2 select-none">
-            <p className="text-white text-3xl font-bold">{letter}</p>
+            <p className="Tile-module_tile__UWEHN text-white text-3xl font-bold">{letter}</p>
         </div>
     )
 }

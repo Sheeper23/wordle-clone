@@ -18,7 +18,7 @@ export default function Grid({
     setWiggle
 }: GridProps) {
     return (
-        <div className="flex flex-col grow items-center gap-1 justify-center">
+        <div className="Board-module_board__jeoPS flex flex-col grow items-center gap-1 justify-center">
             {
                 entries.map((entry, index) => (
                     <Row
