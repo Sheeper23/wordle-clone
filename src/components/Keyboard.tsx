@@ -47,7 +47,7 @@ export default function Keyboard({
     }, [onChar, onEnter, onDelete])
     
     return (
-        <div className="flex flex-col items-center gap-1 mt-[2%] mb-0 md:mb-8">
+        <div className="flex flex-col gap-1 mt-[2%] mb-0 md:mb-8">
             <div className="flex justify-center gap-1">
                 {"QWERTYUIOP".split('').map((letter) => (
                     <Key key={letter} val={letter} onClick={onClick} letterColor={letterColors[letter]} />
