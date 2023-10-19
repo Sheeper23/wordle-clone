@@ -14,10 +14,10 @@
     translate: 0% 0%;
   }
   33% {
-    translate: -10% 0%;
+    translate: -1em 0%;
   }
   66% {
-    translate: 10% 0%;
+    translate: 1em 0%;
   }
   100% {
     translate: 0% 0%;
